@@ -9,3 +9,33 @@ jobs:
       - run:
           name: Building Code
           command: go build ./main/...
+  test_additions: 
+    working_directory: ~/repo
+    docker:
+      - image: cimg/go:1.19.1
+    steps:
+      - checkout
+      - run:
+          name: Testing Additions
+          command: go test ./main/additions/...
+  test_subtractions: 
+    working_directory: ~/repo
+    docker:
+      - image: cimg/go:1.19.1
+    steps:
+      - checkout
+      - run:
+          name: Testing Subtractions
+          command: go test ./main/subtractions/...
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test_additions:
+          requires:
+            - build
+      - test_subtractions:
+          requires:
+            - build
