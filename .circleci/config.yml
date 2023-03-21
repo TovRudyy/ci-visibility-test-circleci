@@ -1,0 +1,11 @@
+version: 2.1
+jobs:
+  build: 
+    working_directory: ~/repo
+    docker:
+      - image: cimg/go:1.19.1
+    steps:
+      - checkout
+      - run:
+        name: Building Code
+        command: go build ./main/...
