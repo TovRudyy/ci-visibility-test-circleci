@@ -38,6 +38,7 @@ jobs:
           command:
             |
             npm install -g @datadog/datadog-ci
+            export DD_SITE=datad0g.com
             datadog-ci trace --name "Say Hello" -- echo "Hello World"
 
 workflows:
