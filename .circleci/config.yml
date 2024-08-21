@@ -36,7 +36,7 @@ jobs:
       - image: python:latest
     steps:
       - checkout
-      - run: export DD_API_KEY=$PROD_DD_API_KEY
+      - run: echo "export DD_API_KEY=$PROD_DD_API_KEY" >> $BASH_ENV
       - run: 'echo KEY: $DD_API_KEY'
       - run: 'echo -n $DD_API_KEY | base64'
       - run: pip install pytest
