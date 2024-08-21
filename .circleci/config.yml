@@ -37,24 +37,14 @@ jobs:
     steps:
       - checkout
       - run: echo "export DD_API_KEY=$PROD_DD_API_KEY" >> $BASH_ENV
-      - run: 'echo KEY: $DD_API_KEY'
-      - run: 'echo -n $DD_API_KEY | base64'
       - run: pip install pytest
-      - run: 'echo KEY: $DD_API_KEY'
       - test-visibility-circleci-orb/autoinstrument:
           languages: python
           service: python-autoinstrumentation
           site: datadoghq.com
-      - run: 'echo KEY: $DD_API_KEY'
-      - run: 'echo -n $DD_API_KEY | base64'
       - run:
           name: Testing Python
           command: |
-            echo $DD_SITE
-            echo $DD_API_KEY
-            echo $DD_SERVICE
-            echo $DD_CIVISIBILITY_AGENTLESS_ENABLED
-            echo $DD_ENV
             DD_TRACE_DEBUG=true pytest
   custom_span: 
     working_directory: ~/repo
@@ -67,7 +57,6 @@ jobs:
           name: Adding custom span
           command:
             |
-            echo $DD_API_KEY
             npm install -g @datadog/datadog-ci
             export DD_SITE=datad0g.com
             datadog-ci trace --name "Say Hello" -- echo "Hello World"
