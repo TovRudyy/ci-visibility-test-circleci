@@ -40,6 +40,7 @@ jobs:
       - test-visibility-circleci-orb/autoinstrument:
           languages: python
           service: python-autoinstrumentation
+          site: datad0g.com
       - run:
           name: Testing Python
           command: pytest
@@ -53,6 +54,7 @@ jobs:
           name: Adding custom span
           command:
             |
+            echo $DD_API_KEY
             npm install -g @datadog/datadog-ci
             export DD_SITE=datad0g.com
             datadog-ci trace --name "Say Hello" -- echo "Hello World"
