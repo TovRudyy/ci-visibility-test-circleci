@@ -38,6 +38,7 @@ jobs:
       - checkout
       - run: apt update
       - run: apt install nodejs -y
+      - run: apt install npm -y
       - run: echo "export DD_API_KEY=$PROD_DD_API_KEY" >> $BASH_ENV
       - run: pip install pytest
       - test-visibility-circleci-orb/autoinstrument:
