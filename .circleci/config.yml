@@ -36,7 +36,7 @@ jobs:
       - image: python:latest
     steps:
       - checkout
-      - run: apt install npm -y
+      - run: apt install nodejs -y
       - run: echo "export DD_API_KEY=$PROD_DD_API_KEY" >> $BASH_ENV
       - run: pip install pytest
       - test-visibility-circleci-orb/autoinstrument:
