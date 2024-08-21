@@ -50,7 +50,10 @@ jobs:
           command: |
             echo $DD_SITE
             echo $DD_API_KEY
-            pytest
+            echo $DD_SERVICE
+            echo $DD_CIVISIBILITY_AGENTLESS_ENABLED
+            echo $DD_ENV
+            DD_TRACE_DEBUG=true pytest
   custom_span: 
     working_directory: ~/repo
     docker:
