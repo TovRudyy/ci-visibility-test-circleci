@@ -36,6 +36,7 @@ jobs:
       - image: python:latest
     steps:
       - checkout
+      - run: export DD_API_KEY=$PROD_DD_API_KEY
       - run: 'echo KEY: $DD_API_KEY'
       - run: 'echo -n $DD_API_KEY | base64'
       - run: pip install pytest
@@ -43,8 +44,9 @@ jobs:
       - test-visibility-circleci-orb/autoinstrument:
           languages: python
           service: python-autoinstrumentation
-          site: datad0g.com
+          site: datadoghq.com
       - run: 'echo KEY: $DD_API_KEY'
+      - run: 'echo -n $DD_API_KEY | base64'
       - run:
           name: Testing Python
           command: |
