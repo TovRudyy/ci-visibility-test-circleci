@@ -27,6 +27,16 @@ jobs:
       - run:
           name: Testing Subtractions
           command: go test ./main/subtractions/...
+  test_python:
+    working_directory: ~/repo
+    docker:
+      - image: python:latest
+    steps:
+      - checkout
+      - run: pip install pytest
+      - run:
+          name: Testing Python
+          command: pytest
   custom_span: 
     working_directory: ~/repo
     docker:
