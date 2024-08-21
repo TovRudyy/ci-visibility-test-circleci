@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  test-visibility-circleci-orb: manueltest/test-visibility-circleci-orb@1.0.0
 jobs:
   build: 
     working_directory: ~/repo
@@ -33,6 +35,9 @@ jobs:
     steps:
       - checkout
       - run: pip install pytest
+      - test-visibility-circleci-orb/autoinstrument:
+          languages: python
+          service: python-autoinstrumentation
       - run:
           name: Testing Python
           command: pytest
