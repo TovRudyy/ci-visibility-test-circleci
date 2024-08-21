@@ -43,7 +43,9 @@ jobs:
           site: datad0g.com
       - run:
           name: Testing Python
-          command: pytest
+          command: |
+            echo $DD_API_KEY
+            pytest
   custom_span: 
     working_directory: ~/repo
     docker:
