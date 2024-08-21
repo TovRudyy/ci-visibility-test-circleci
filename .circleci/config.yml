@@ -40,8 +40,8 @@ jobs:
       - run: echo "export DD_API_KEY=$PROD_DD_API_KEY" >> $BASH_ENV
       - run: pip install pytest
       - test-visibility-circleci-orb/autoinstrument:
-          languages: python java
-          service: python-autoinstrumentation
+          languages: python js
+          service: js-python-autoinstrumentation
           site: datadoghq.com
       - run:
           name: Testing Python
