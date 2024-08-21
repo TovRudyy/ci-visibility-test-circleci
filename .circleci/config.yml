@@ -31,6 +31,7 @@ jobs:
           name: Testing Subtractions
           command: go test ./main/subtractions/...
   test_python:
+    working_directory: ~/repo
     docker:
       - image: python:latest
     steps:
