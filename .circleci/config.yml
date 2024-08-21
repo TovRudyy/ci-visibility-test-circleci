@@ -47,6 +47,7 @@ jobs:
       - run:
           name: Testing Python
           command: |
+            echo $DD_SITE
             echo $DD_API_KEY
             pytest
   custom_span: 
