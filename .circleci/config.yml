@@ -36,11 +36,14 @@ jobs:
       - image: python:latest
     steps:
       - checkout
+      - run: 'echo KEY: $DD_API_KEY'
       - run: pip install pytest
+      - run: 'echo KEY: $DD_API_KEY'
       - test-visibility-circleci-orb/autoinstrument:
           languages: python
           service: python-autoinstrumentation
           site: datad0g.com
+      - run: 'echo KEY: $DD_API_KEY'
       - run:
           name: Testing Python
           command: |
@@ -52,6 +55,7 @@ jobs:
       - image: cimg/node:21.6.1
     steps:
       - checkout
+      - run: 'echo KEY: $DD_API_KEY'
       - run:
           name: Adding custom span
           command:
