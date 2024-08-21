@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  test-visibility-circleci-orb: manueltest/test-visibility-circleci-orb@0.0.1
+  test-visibility-circleci-orb: manueltest/test-visibility-circleci-orb@1.0.3
 
 jobs:
   build: 
