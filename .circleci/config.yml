@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  test-visibility-circleci-orb: manueltest/test-visibility-circleci-orb@1.0.0
+  test-visibility-circleci-orb: manueltest/test-visibility-circleci-orb@0.0.1
 jobs:
   build: 
     working_directory: ~/repo
