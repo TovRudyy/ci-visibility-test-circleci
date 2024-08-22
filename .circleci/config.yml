@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  test-visibility-circleci-orb: manueltest/test-visibility-circleci-orb@1.0.8
+  test-visibility-circleci-orb: manueltest/test-visibility-circleci-orb@1
 jobs:
   build: 
     working_directory: ~/repo
@@ -40,10 +40,10 @@ jobs:
       - run: apt install nodejs -y
       - run: apt install npm -y
       - run: echo "export DD_API_KEY=$PROD_DD_API_KEY" >> $BASH_ENV
+      - run: echo "export DD_SERVICE=js-python-autoinstrumentation"
       - run: pip install pytest
       - test-visibility-circleci-orb/autoinstrument:
           languages: python js
-          service: js-python-autoinstrumentation
           site: datadoghq.com
       - run:
           name: Testing Python
