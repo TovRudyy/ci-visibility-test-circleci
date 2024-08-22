@@ -45,6 +45,7 @@ jobs:
       - test-visibility-circleci-orb/autoinstrument:
           languages: python js
           site: datadoghq.com
+          service: test
       - run:
           name: Testing Python
           command: |
