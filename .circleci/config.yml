@@ -40,12 +40,11 @@ jobs:
       - run: apt install nodejs -y
       - run: apt install npm -y
       - run: echo "export DD_API_KEY=$PROD_DD_API_KEY" >> $BASH_ENV
-      - run: echo "export DD_SERVICE=js-python-autoinstrumentation"
+      - run: echo "export DD_SERVICE=js-python-autoinstrumentation" >> $BASH_ENV
       - run: pip install pytest
       - test-visibility-circleci-orb/autoinstrument:
           languages: python js
           site: datadoghq.com
-          service: test
       - run:
           name: Testing Python
           command: |
