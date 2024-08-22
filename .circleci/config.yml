@@ -43,7 +43,7 @@ jobs:
       - run: echo "export DD_SERVICE=js-python-autoinstrumentation" >> $BASH_ENV
       - run: pip install pytest
       - test-visibility-circleci-orb/autoinstrument:
-          languages: python js
+          languages: python js java
           site: datadoghq.com
       - run:
           name: Testing Python
@@ -53,6 +53,10 @@ jobs:
           cd node-jest
           npm install
           DD_TRACE_DEBUG=true npm run test
+          cd ..
+      - run: |
+          cd java/gradle-junit5
+          ./gradlew clean build
   custom_span: 
     working_directory: ~/repo
     docker:

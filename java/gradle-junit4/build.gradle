@@ -1,0 +1,22 @@
+subprojects {
+    apply plugin: 'java'
+
+    group 'datadog.ci.test'
+    version "$version"
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation 'org.apache.logging.log4j:log4j-api:2.23.1'
+        implementation 'org.apache.logging.log4j:log4j-core:2.23.1'
+        testImplementation 'junit:junit:4.10'
+    }
+
+    test {
+        testLogging.showStandardStreams = true
+        useJUnit()
+    }
+}
