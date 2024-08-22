@@ -39,6 +39,8 @@ jobs:
       - run: apt update
       - run: apt install nodejs -y
       - run: apt install npm -y
+      - run: apt install default-jre -y
+      - run: apt install default-jdk -y
       - run: echo "export DD_API_KEY=$PROD_DD_API_KEY" >> $BASH_ENV
       - run: echo "export DD_SERVICE=js-python-autoinstrumentation" >> $BASH_ENV
       - run: pip install pytest
