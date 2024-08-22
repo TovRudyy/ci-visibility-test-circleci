@@ -51,7 +51,8 @@ jobs:
             DD_TRACE_DEBUG=true pytest
       - run: |
           cd node-jest
-          npm run test
+          npm install
+          DD_TRACE_DEBUG=true npm run test
   custom_span: 
     working_directory: ~/repo
     docker:
