@@ -41,12 +41,12 @@ jobs:
       - run: apt install npm -y
       - run: apt install default-jre -y
       - run: apt install default-jdk -y
-      #- run: echo "export DD_API_KEY=$PROD_DD_API_KEY" >> $BASH_ENV
+      - run: echo "export DD_API_KEY=$PROD_DD_API_KEY" >> $BASH_ENV
       - run: echo "export DD_SERVICE=js-python-autoinstrumentation" >> $BASH_ENV
       - run: pip install pytest
       - test-visibility-circleci-orb/autoinstrument:
           languages: python js java
-          site: datad0g.com
+          site: datadoghq.com
       - run:
           name: Testing Python
           command: |
