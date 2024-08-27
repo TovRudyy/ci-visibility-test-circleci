@@ -40,7 +40,10 @@ jobs:
       - run: pip install pytest
       - test-visibility-circleci-orb/autoinstrument:
           languages: python
-          site: datadoghq.com
+          site: datad0g.com
+      - run: |
+          echo $DD_CIVISIBILITY_AGENTLESS_ENABLED
+          echo $DD_SITE
       - run:
           name: Testing Python
           command: pytest
