@@ -1,4 +1,0 @@
-rootProject.name = 'java-gradle-testng-6.4'
-
-include ':test-submodule'
-

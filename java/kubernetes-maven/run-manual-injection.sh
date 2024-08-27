@@ -1,1 +1,0 @@
-MAVEN_OPTS="-javaagent:/root/.m2/repository/com/datadoghq/dd-java-agent/9.9.9-SNAPSHOT/dd-java-agent-9.9.9-SNAPSHOT.jar=dd.service=ciapp-test-kubernetes,dd.trace.agent.unix.domain.socket=/var/run/datadog/apm.socket" ./run.sh

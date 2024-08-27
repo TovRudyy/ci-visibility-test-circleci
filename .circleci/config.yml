@@ -36,29 +36,14 @@ jobs:
       - image: python:latest
     steps:
       - checkout
-      - run: apt update
-      - run: apt install nodejs -y
-      - run: apt install npm -y
-      - run: apt install default-jre -y
-      - run: apt install default-jdk -y
-      - run: echo "export DD_API_KEY=$PROD_DD_API_KEY" >> $BASH_ENV
-      - run: echo "export DD_SERVICE=js-python-autoinstrumentation" >> $BASH_ENV
+      - run: echo "export DD_SERVICE=python-autoinstrumentation" >> $BASH_ENV
       - run: pip install pytest
       - test-visibility-circleci-orb/autoinstrument:
-          languages: python js java
+          languages: python
           site: datadoghq.com
       - run:
           name: Testing Python
-          command: |
-            DD_TRACE_DEBUG=true pytest
-      - run: |
-          cd node-jest
-          npm install
-          DD_TRACE_DEBUG=true npm run test
-          cd ..
-      - run: |
-          cd java/gradle-junit5
-          ./gradlew clean build
+          command: pytest
   custom_span: 
     working_directory: ~/repo
     docker:
